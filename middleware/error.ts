@@ -1,8 +1,15 @@
 import { ErrorResponse } from "../api/utils/errorResponse";
 import { Request, Response, NextFunction } from "express";
+import { MongoError } from "mongodb";
+import { Mongoose } from "mongoose";
 import colors from "colors";
 
-export function errorHandler(err: any, req: Request, res: Response) {
+export function errorHandler(
+  err: any,
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
   // Copy error
   let error = { ...err };
 
